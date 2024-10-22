@@ -1,5 +1,13 @@
 <script>
 
+div.checkout-heading-text > div > b
 
+function () {
+    var regex = /\S+@\S+\.\S+/;
+    var email = document.querySelector('[type="email"]');
+    if(!email) return;
+    if(!regex.test(email.value)) return;
+    return email.value;
+}
 
 </script>
