@@ -1,15 +1,4 @@
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-952656369"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-952656369',{' allow_enhanced_conversions':true});
-
-  document.querySelector('#register-form').addEventListener('submit', function(){
+document.querySelector('#register-form').addEventListener('submit', function(){
     
     var validEmail = function () {
         var regex = /\S+@\S+\.\S+/;
@@ -40,6 +29,3 @@
     gtag('event', 'conversion', {
       'send_to': 'AW-952656369/f5NCCLTg3WUQ8cOhxgM'})
   })
-
-</script>
-
