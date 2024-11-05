@@ -35,9 +35,9 @@
     
 
     //Inserir mensagem de agradecimento
-    var googleForm = "MENSAGEM DE AGRADECIMENTO";
-    (function googleFormValidation() {
-        if (document.body && document.body.innerText.includes(googleForm) && g_ECObj.email && g_ECObj.phone_number){
+    var botaoVestibular = document.querySelector('[value="COMEÇAR O VESTIBULAR"]');
+    (function vestibularValidation() {
+        if (document.body && document.body.innerText.includes(botaoVestibular) && g_ECObj.email && g_ECObj.phone_number){
             console.log("send_form");
             dataLayer.push({event: 'send_form'});
         } else {

@@ -1,13 +1,45 @@
 <script>
-
-var emailEC = //copiar apenas abaixo
-function () {
-    var regex = /\S+@\S+\.\S+/;
-    var email = document.querySelector('[type="email"]');
-    if(!email) return;
-    if(!regex.test(email.value)) return;
-    return email.value;
-}
-
-
-</script>
+    var g_EC = { email: '[type="email"]',phone_number: '[type="tel"]'};
+    var g_countryCode = '55';
+    window.g_setupEC = Object.create(null);
+    window.g_ECObj = Object.create(null);
+    document.addEventListener('input', g_setup_ECObj);
+    function g_setup_ECObj(e) {
+        var input = e.target;
+        for (i in g_EC) {
+            if (input.matches(g_EC[i])) {
+                g_setupEC['g_' + i] = input.value;
+            }
+        }
+        g_save_toECObj();
+    }
+    function g_save_toECObj() {
+        for (i in g_EC) {
+            if (g_setupEC['g_' + i]) {
+                if (i == 'email' && g_validateEmail(g_setupEC['g_' + i])) window.g_ECObj[i] = g_setupEC['g_' + i];
+                if (i == 'phone_number' && window.g_ECObj['email']) {
+                    var cleanedPhone = g_validatePhone(g_setupEC['g_' + i]);
+                    var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.startsWith(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
+                    finalPhone.length >= 11 && finalPhone.length <= 15 ? (window.g_ECObj[i] = finalPhone) : delete window.g_ECObj[i];
+                }
+            }
+        }
+    }
+    function g_validateEmail(email) {
+        return /\S+@\S+\.\S+/.test(email);
+    }
+    function g_validatePhone(tel) {
+        return tel.replace(/\D/g, '');
+    }
+    g_save_toECObj();
+    
+    var googleForm = "Sua mensagem foi enviada, agora é só aguardar o contato do corretor.";
+    (function googleFormValidation() {
+        if (document.body && document.body.innerText.includes(googleForm) && g_ECObj.email && g_ECObj.phone_number){
+            console.log("send_form");
+            dataLayer.push({event: 'send_form'});
+        } else {
+            setTimeout(googleFormValidation, 50);
+        }
+    })();
+    </script>
