@@ -1,55 +1,27 @@
+
+<!-- FORM CONSULTA GRATUITA -->
 <script>
-    var g_EC = { email: '#email'};
-    window.g_setupEC = Object.create(null);
-    window.g_ECObj = Object.create(null);
-    document.addEventListener('input', g_setup_ECObj);
-    function g_setup_ECObj(e) {
-        var input = e.target;
-        for (i in g_EC) {
-            if (input.matches(g_EC[i])) {
-                g_setupEC['g_' + i] = input.value;
-            }
-        }
-        g_save_toECObj();
-    }
-    function g_save_toECObj() {
-        for (i in g_EC) {
-            if (g_setupEC['g_' + i]) {
-                if (i == 'email' && g_validateEmail(g_setupEC['g_' + i])) window.g_ECObj[i] = g_setupEC['g_' + i];
-                if (i == 'phone_number' && window.g_ECObj['email']) {
-                    var cleanedPhone = g_validatePhone(g_setupEC['g_' + i]);
-                    var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.startsWith(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
-                    finalPhone.length >= 11 && finalPhone.length <= 15 ? (window.g_ECObj[i] = finalPhone) : delete window.g_ECObj[i];
-                }
-            }
-        }
-    }
-    function g_validateEmail(email) {
-        return /\S+@\S+\.\S+/.test(email);
-    }
-    function g_validatePhone(tel) {
-        return tel.replace(/\D/g, '');
-    }
-    g_save_toECObj();
-    
+  var appointmentButton = document.querySelector(".btn_contact");
+  var floatingButton = document.querySelector('#__layout > div > div:nth-child(1) > nav > div.nav__modal > div > div > div > div.contact-form__form > a > div')
+  var emailEC = function () {
+      var regex = /\S+@\S+\.\S+/;
+      var email = document.querySelector('#email');
+      if (!email) return;
+      if (!regex.test(email.value)) return;
+      return email.value;
+    };
 
-    var emailEC = function () {
-    var regex = /\S+@\S+\.\S+/;
-    var email = document.querySelector('[name="name-43R9j4Tm1O"]');
-    if(!email) return;
-    if(!regex.test(email.value)) return;
-    return email.value;
-}
+  floatingButton.addEventListener("click", function () {
+    if (emailEC()) {
+      console.log("form_float");
+      dataLayer.push({ event: "form_float" });
+    }
+  });
 
-    var appointmentButton = document.querySelector('.btn_contact');
-
-    appointmentButton.addEventListener('click', function googleFormValidation() {
-        if (emailEC()){
-            console.log("send_form");
-            dataLayer.push({event: 'send_form'});
-        } else {
-            setTimeout(googleFormValidation, 50);
-        }
-    }())
-
-    </script>
+  appointmentButton.addEventListener("click", function () {
+    if (emailEC()) {
+      console.log("form_consulta");
+      dataLayer.push({ event: "form_consulta" });
+    }
+  });
+</script>
