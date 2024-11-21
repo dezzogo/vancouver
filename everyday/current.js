@@ -10,7 +10,7 @@ function () {
 var phoneEC = //copiar apenas abaixo
 function () {
     var g_countryCode = '55';
-    var g_getPhone = document.querySelector('#form-field-telefone').value;
+    var g_getPhone = document.querySelector('#input_7_15').value;
     g_getPhone = g_countryCode + g_getPhone;
     g_getPhone = g_getPhone.replace(/\D/g, '');
     if(g_getPhone.length >= 11 && g_getPhone.length <= 15) {
