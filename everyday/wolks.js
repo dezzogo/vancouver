@@ -35,12 +35,12 @@ formNovos.addEventListener("submit", function () {
   }
 });
 
-// Lateral
-var formLateral = document.querySelector("#wpcf7-f213-o1 > form");
-formLateral.addEventListener("submit", function () {
+// Suspenso
+var formSuspenso = document.querySelector("#wpcf7-f213-o1 > form");
+formSuspenso.addEventListener("submit", function () {
   if (window.location.href.includes(!"veiculos")) {
     dataLayer.push({
-      event: "lateral_form_submit",
+      event: "suspenso_form_submit",
     });
   }
 });

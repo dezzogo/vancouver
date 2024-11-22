@@ -1,4 +1,4 @@
-//wpp
+//wpp colortelha
 
 function getWppPhone() {
     var phoneNumbers = document.querySelectorAll('#txtTelefone2');
@@ -32,14 +32,3 @@ var phoneNumbers =
 
 
 
-var botaoAddToCart = document.querySelectorAll('.classe1, .classe2');
-
-botaoAddToCart.forEach(botaoAdd,function() {
-    botaoAdd.addEventListener('click', function() {
-        console.log('adicionou ao carrinho')
-        window.dataLayer.push({
-        'event': 'add-to-cart'
-        })
-
-    });
-});
