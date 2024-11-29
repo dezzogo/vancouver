@@ -1,3 +1,5 @@
+<script>
+
 var botaoForm = document.querySelector('[type="submit"]')
 var emailForm = function () {
     var regex = /\S+@\S+\.\S+/;
@@ -16,3 +18,5 @@ botaoForm.addEventListener('click', function(){
         })
     }
 })
+
+</script>
