@@ -39,17 +39,4 @@
     return tel.replace(/\D/g, "");
   }
   g_save_toECObj();
-
-  var formButton = document.querySelector(
-    "#formularioRegister > div.aba-fieldset-conteudo > div.buttons-group.pull-right > button"
-  );
-
-  formButton.addEventListener("click", function () {
-    if (g_ECObj.email && g_ECObj.phone_number) {
-      console.log("send_form");
-      dataLayer.push({ event: "send_form" });
-    } else {
-      setTimeout(googleFormValidation, 50);
-    }
-  });
 </script>
