@@ -1,0 +1,44 @@
+<script>
+    var g_ts_config = {
+      CSSEmail :'[type=email],[name="email"]', 
+      CSSSubmitButton: '[type="submit"], [data-action="widget-formulario-enviar"]', 
+    
+      emailRegEx: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+     };
+     window.g_ts_obj = window.g_ts_obj||{}; 
+     window.g_ECObj = window.g_ECObj||{}; 
+    
+     window.g_ts_obj.init = function(){
+      document.addEventListener('input',function(e){
+        var input = e.target,
+        isEmail = input.matches(g_ts_config.CSSEmail),
+        isPhoneNumber = input.matches(g_ts_config.CSSPhoneNumber);
+        
+        if (!isEmail && !isPhoneNumber) {return;}
+    
+        var input_value = input.value || input.textContent.trim();
+    
+        if (isEmail && g_ts_config.emailRegEx.test(input_value) ) {
+          console.log( 'TS alert: '+ input_value+' is a valid e-mail;' );
+          window.g_ts_obj.email = window.g_ECObj.email = input_value;
+          return;
+        }  
+     });
+     
+     document.addEventListener('click',  function(e){
+      var element = e.target;
+      
+      if(!element.matches(g_ts_config.CSSSubmitButton) && ! element.closest(g_ts_config.CSSSubmitButton)) {
+        return;
+      }
+      
+      var form = element.closest('form');
+      if(form && !form.checkValidity()) {return;};
+      if(!window.g_ts_obj.phone_number && !window.g_ts_obj.email){return;}
+      console.log('TS alert: user-provided_data_event on DataLayer, use The Javacript variable: window.g_ts_obj \n(Email:'+ window.g_ts_obj.email+ ', Phone_number:'+window.g_ts_obj.phone_number+')');
+      window.dataLayer.push({'event': 'form_book_a_demo'});
+     });
+    
+    }
+    window.g_ts_obj.init();
+    </script>
