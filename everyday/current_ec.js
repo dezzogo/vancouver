@@ -5,7 +5,7 @@ function() {
     var regex = /\S+@\S+\.\S+/;
     var email;
   
-    document.querySelectorAll('SELETOR_AQUI').forEach(function(e) {
+    document.querySelectorAll('[type="email"]').forEach(function(e) {
       if(e.value) {
          email = e.value
       }
@@ -24,7 +24,7 @@ function() {
     var g_countryCode = '55';
     var g_getPhone;
    
-    document.querySelectorAll('SELETOR_AQUI').forEach(function(e) {
+    document.querySelectorAll('[type="tel"]').forEach(function(e) {
       if(e.value) {
          g_getPhone = e.value
       }
