@@ -1,5 +1,5 @@
 //EMAIL
-var email = //no needed, just to avoid errors
+var emailGenuina = //no needed, just to avoid errors
 
 
 function() {
@@ -19,10 +19,10 @@ function() {
   /* ---------- x ---------- */
 
 //PHONE NUMBER
-var phoneNumber = //no needed, just to avoid errors
+var phoneNumberGenuina = //no needed, just to avoid errors
 
 function() {
-    var g_countryCode = '55';
+    var g_countryCode = document.querySelector('#sp-form-ngs9M1O_01 > div.tatsu-form-step > div.GF.tatsu-pzMOwu-mWh.tatsu-form-phone.tatsu-form-required.y.pB > div > div.IF > div > div > div.tatsu-custom-select-value > input').value;
     var g_getPhone;
    
     document.querySelectorAll('[type="tel"]').forEach(function(e) {
@@ -33,7 +33,7 @@ function() {
     g_getPhone = g_countryCode + g_getPhone;
     g_getPhone = g_getPhone.replace(/\D/g, '');
     if(g_getPhone.length >= 11 && g_getPhone.length <= 15) {
-      return "+" + g_getPhone
+      return '+' + g_getPhone
     }
   }
 

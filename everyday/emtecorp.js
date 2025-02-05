@@ -36,22 +36,3 @@ function() {
       return "+" + g_getPhone
     }
   }
-
-
-//PHONE NUMBER WITH +55 (TO TEST)
-var phone55 = 
-function () {
-  var g_getPhone;
-  var g_countryCode = document.querySelector('SELETOR_AQUI').value;
-
-  var g_getPhone = document.querySelectorAll('SELETOR AQUI').forEach(function(e) {
-    if(e.value) {
-       g_getPhone = e.value
-    }
-  });
-  g_getPhone = g_countryCode + g_getPhone;
-  g_getPhone = g_getPhone.replace(/\D/g, '');
-  if(g_getPhone.length >= 9 && g_getPhone.length <= 13) {
-    return "+" + g_getPhone
-  }
-}
