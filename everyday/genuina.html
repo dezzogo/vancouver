@@ -1,0 +1,21 @@
+<script>
+
+    var formGenuina = document.querySelector('#sp-form-ngs9M1O_01');
+    formEmtecorp.addEventListener('submit', function(){
+        var emailInput = formEmtecorp.querySelector('input[type="email"]').value;
+        var telInput = formEmtecorp.querySelector('input[type="tel"]').value;
+        var ddi = document.querySelector('#sp-form-ngs9M1O_01 > div.tatsu-form-step > div.GF.tatsu-pzMOwu-mWh.tatsu-form-phone.tatsu-form-required.y.pB > div > div.IF > div > div > div.tatsu-custom-select-value > input').value;
+    
+        var emailRegex = /\S+@\S+\.\S+/;
+        var telRegex = /\D/g;
+    
+        if (emailRegex.test(emailInput) && telRegex.test(telInput)) {
+            dataLayer.push({
+            'event':'form_emtecorp',
+            'email':emailInput,
+            'phone':ddi + telInput
+        })
+        }
+    })
+    
+</script>
