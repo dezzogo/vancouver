@@ -1,0 +1,12 @@
+<script>
+    var pix = "Pix";
+     (function pixPurchasevalidation() {
+      if(dataLayer.transactionPaymentType.0.paymentSystemName == pix) {
+        dataLayer.push({
+         'event': 'orderPlacedPix'
+        })
+      }else {
+        setTimeout(googleFormValidation, 1000);
+      }
+    })();
+</script>
