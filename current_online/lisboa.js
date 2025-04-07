@@ -4,4 +4,4 @@ document.querySelectorAll('a[href*="whatsapp"]').forEach(function(e){
         dataLayer.push({'event':'whatsapp_lisboa'})
     })
 })
-</script>
+//</script>

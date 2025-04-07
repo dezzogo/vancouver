@@ -12,7 +12,7 @@ document.querySelector("body > div > div > div > div > div.tidio-1a050gg > div >
 })
 
 
-<script>  
+//<script>  
   // Criando um intervalo (temporizador)
   var myInterval = setInterval(function() {
     
@@ -34,7 +34,7 @@ document.querySelector("body > div > div > div > div > div.tidio-1a050gg > div >
         });
        }
    }, 2000); // Disparar o código acima de 2 em 2 segundos até o iFrame ser carregado, após isso parar.
-</script>
+//</script>
 
 
 //<script>
@@ -72,6 +72,4 @@ var formCases = document.querySelector("#rd-form-luhazmne > form");
 })
 
 
-
-
-</script>
+//</script>
