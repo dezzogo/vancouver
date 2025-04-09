@@ -1,7 +1,7 @@
-var formJukebox = document.querySelector('form.elementor-form');
+var formBtnJukebox = document.querySelector('form > div > div.elementor-field-group.elementor-column.elementor-field-type-submit.elementor-col-100.e-form__buttons > button');
 var emailJukebox = document.querySelector('#form-field-field_1d95660').value;
 
-formJukebox.addEventListener('submit', function(){
+formBtnJukebox.addEventListener('click', function(){
     if(emailJukebox){
         dataLayer.push({
             'event':'form_jukebox'

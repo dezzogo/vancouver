@@ -55,7 +55,7 @@ function() {
   }
 
 //<script> 
-
+//RODAPE
 var formFodape = document.querySelector("#rd-form-luhazmne > form");
 var formblog = document.querySelector("#rd-form-luhazmne > form");
 var formCases = document.querySelector("#rd-form-luhazmne > form");
@@ -71,5 +71,38 @@ var formCases = document.querySelector("#rd-form-luhazmne > form");
     }
 })
 
+
+//BLOG
+var formFodape = document.querySelector("#rd-form-luhazmne > form");
+var formblog = document.querySelector("#rd-form-luhazmne > form");
+var formCases = document.querySelector("#rd-form-luhazmne > form");
+
+  document.querySelector("#rd-form-luhazmne > form").addEventListener('submit', function () {
+
+    var email = document.querySelector('#rd-email_field-m8ssi28n').value;
+
+    if (email) {
+        dataLayer.push({
+            event: "form_rodape"
+        })
+    }
+})
+
+
+//CASES
+var formFodape = document.querySelector("#rd-form-luhazmne > form");
+var formblog = document.querySelector("#rd-form-luhazmne > form");
+var formCases = document.querySelector("#rd-form-luhazmne > form");
+
+  document.querySelector("#rd-form-luhazmne > form").addEventListener('submit', function () {
+
+    var email = document.querySelector('#rd-email_field-m8ssi28n').value;
+
+    if (email) {
+        dataLayer.push({
+            event: "form_rodape"
+        })
+    }
+})
 
 //</script>

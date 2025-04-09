@@ -1,0 +1,11 @@
+<script>
+    if(window.location.href.includes('order-received')) {
+      console.log("Purchase has been done");
+      dataLayer.push({
+        'event' : 'purchase',
+        'value' : document.querySelector('.total .amount bdi').innerText.replace(/\D/g,'')/100,
+        'transaction_id' : document.querySelector('.order strong').innerText,
+        'email' : document.querySelector('[class="woocommerce-order-overview__email email"]').innerText.split("\n").pop()
+      });
+    }
+  </script>
