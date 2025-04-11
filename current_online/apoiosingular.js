@@ -50,7 +50,7 @@ function() {
     var g_countryCode = '55';
     var g_getPhone;
    
-    document.querySelectorAll('#form-field-field_3852157').forEach(function(e) {
+    document.querySelectorAll('[type="tel"]').forEach(function(e) {
       if(e.value) {
          g_getPhone = e.value
       }
@@ -61,3 +61,16 @@ function() {
       return "+" + g_getPhone
     }
   }
+
+
+//variável menu radio
+var menuRadio = //nao copiar
+
+function (){
+    var radioButton = document.querySelector('input[type="radio"]');
+if (radioButton.checked) {
+    return "A"
+} else {
+    return "B"
+}
+}
