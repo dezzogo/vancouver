@@ -1,0 +1,25 @@
+<script>
+
+//VOUCHER e WORKSHOP EVENTO enhanced_conversion
+var paymentButton = document.querySelector('.css-1b7k2jn');
+var paymentEmail = document.querySelector('.css-1e5gijs')
+paymentButton.addEventListener('click', function(){
+    if (/\S+@\S+\.\S+/.test(paymentEmail)) {
+        dataLayer.push({
+        'event':'enhanced_conversion',
+        'email':paymentEmail.toLowercase()
+    })
+}})
+
+// VOUCHER e WORKSHOP checkout purchase_voucher_workshop
+var valuePurchase = document.querySelector('#pylon > div > main > form > div > div > div > div:nth-child(2) > div.css-trha6c > p:nth-child(2) > strong').innerText.replace(/\D/g,'')/100;
+
+paymentButton.addEventListener('click',function(){
+    if (valuePurchase > 0) {
+    dataLayer.push({
+        'event':'purchase_voucher',
+        'value':valuePurchase,
+    })
+}})
+
+</script>
