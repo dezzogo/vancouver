@@ -1,3 +1,17 @@
+//EVENTO TAG CONVERSAO OTIMIZADA
+//<script>
+var paymentButton = document.querySelector('.css-1b7k2jn');
+var paymentEmail = document.querySelector('.css-1e5gijs')
+paymentButton.addEventListener('click', function(){
+    if (/\S+@\S+\.\S+/.test(paymentEmail)) {
+        dataLayer.push({
+        'event':'enhanced_conversion',
+        'email':paymentEmail
+    })
+}})
+//</script>
+
+
 //STORE
 //<script>
 
@@ -42,8 +56,8 @@ var formWorkshop = document.querySelector('SELETOR-FORM');
 formWorkshop.addEventListener('submit',function(){
     dataLayer.push({
         'event':'purchase_workshop',
-        'value':valueStore,
-        'email':emailStore 
+        'value':valueWorkShop,
+        'email':emailWorkshop 
     })
 })
 //</script>
