@@ -1,0 +1,18 @@
+<script>
+
+var visitForm = document.querySelector('#sendVisit');
+if(visitForm){
+    var visitFormButton = document.querySelector('#sendVisit > div.button > button');
+    visitFormButton.addEventListener('click', function(){
+        var phone = document.querySelector('[type="tel"]').value;
+        var email = document.querySelector('[type="email"]').value;
+
+        if (email && phone){
+            dataLayer.push({
+                'event':'form_visita'
+            })
+        }
+    })
+}
+
+</script>

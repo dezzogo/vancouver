@@ -1,25 +1,42 @@
+
+<!-- O QUE ESTÁ NO CONTÊINER -->
 <script>
+//CONVERSAO OTIMIZADA
+    var paymentButton = document.querySelector('.btn');
+    var paymentEmail = document.querySelector('.css-1e5gijs').innerText;
+    paymentButton.addEventListener('click', function(){
+        if (/\S+@\S+\.\S+/.test(paymentEmail)) {
+            dataLayer.push({
+            'event':'enhanced_conversion',
+            'email':paymentEmail.toLowercase()
+        })
+    }})
+    
 
-//VOUCHER e WORKSHOP EVENTO enhanced_conversion
-var paymentButton = document.querySelector('.css-1b7k2jn');
-var paymentEmail = document.querySelector('.css-1e5gijs')
-paymentButton.addEventListener('click', function(){
-    if (/\S+@\S+\.\S+/.test(paymentEmail)) {
+//EVENTO COMPRA ABA WORKSHOP -  purchase_voucher_workshop
+    var valuePurchase = document.querySelector('[aria-labelledby="label-total-due"]').innerText.replace(/\D/g,'')/100;
+    var purchaseButton = document.querySelector('.btn[type="submit"]');
+    paymentButton.addEventListener('click',function(){
+        if (valuePurchase > 0) {
         dataLayer.push({
-        'event':'enhanced_conversion',
-        'email':paymentEmail.toLowercase()
-    })
-}})
+            'event':'purchase_voucher_workshop',
+            'value':valuePurchase,
+        })
+    }})
 
-// VOUCHER e WORKSHOP checkout purchase_voucher_workshop
-var valuePurchase = document.querySelector('#pylon > div > main > form > div > div > div > div:nth-child(2) > div.css-trha6c > p:nth-child(2) > strong').innerText.replace(/\D/g,'')/100;
+//EVENTO COMPRA ABA CURSO INTENSIVO -  
+    var valueCurso = document.querySelector('[aria-label="Total price"]').innerText.replace(/\D/g,'')/100;
+    var purchaseButton = document.querySelector('.btn[type="submit"]');
+    paymentButton.addEventListener('click',function(){
+        if (valuePurchase > 0) {
+        dataLayer.push({
+            'event':'purchase_voucher_workshop',
+            'value':valuePurchase,
+        })
+    }})
 
-paymentButton.addEventListener('click',function(){
-    if (valuePurchase > 0) {
-    dataLayer.push({
-        'event':'purchase_voucher_workshop',
-        'value':valuePurchase,
-    })
-}})
+function (){
+    return document.querySelector('.css-1e5gijs').innerText;
+}
 
 </script>
