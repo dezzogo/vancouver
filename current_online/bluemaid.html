@@ -1,0 +1,14 @@
+<script>
+var formOrcamentos = document.querySelector('#wpforms-submit-1612');
+
+if(formOrcamentos){
+    var email = document.querySelector('[type="email"]').value;
+    formOrcamentos.addEventListener('click', function(){
+        if(email){
+            dataLayer.push({
+                'event':'submitForm'
+            })
+        }
+    })
+}
+</script>

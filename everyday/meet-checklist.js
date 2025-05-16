@@ -3,7 +3,7 @@ javascript: var t;
 t = {
 PT: [
 "Apresentação",
-"A ligação poderá ser gravada para fins de treinamento e qualidade e melhoria nos serviços do Google, de acordo com a nossa política de privacidade",
+"A ligação poderá ser gravada para fins de treinamento, qualidade e melhoria nos serviços do Google, de acordo com a nossa política de privacidade",
 "Tempo da Ligação",
 "Confirmações: Task, site, AM",
 "Confirmação: Pedir que o Anunciante Confirme os 10 dígitos do CID",
@@ -12,7 +12,7 @@ PT: [
 "Resumo da chamada",
 "Ajuda adicional",
 "Fechar compartilhamento de tela",
-"Próximos passos (quanto tempo vai acompanhar o caso)",
+"Acompanhamento: A implementação foi concluída e, a partir de agora, a nossa equipe de qualidade poderá realizar um teste de conversão para validar a implementação. Você concorda com esse teste para garantirmos a efetividade da implementação?",
 "Pesquisa de Satisfação"
 ],
 ES: [
