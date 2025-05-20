@@ -1,4 +1,18 @@
 //<script>
+var botaoAgendarConferencia = document.querySelector('#schedule-meeting-button');
+
+if(botaoAgendarConferencia){
+    botaoAgendarConferencia.addEventListener('click', funcion(){
+        dataLayer.push({
+            'event':'avaliacao_digital'
+        })
+    })
+}
+</script>
+
+
+
+
 
 document.querySelector('SELETOR_FORM').addEventListener('submit', function () {
 

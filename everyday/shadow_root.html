@@ -1,0 +1,18 @@
+<script>
+var g_shadowInterval = setInterval(function () {
+    var g_shadowRoot = document.querySelector('.shadow-smt-app-whatsapp');
+
+
+    if (!g_shadowRoot) return;
+    clearInterval(g_shadowInterval);
+    console.log('shadow root found');
+
+
+    g_shadowRoot.shadowRoot.addEventListener('click', function (e) {
+        if (e.target.parentElement.classList.contains('sm-chat-send')) {
+            console.log('Whatsapp button clicked');
+            // gtag ou dataLayer.push
+         }
+    });
+}, 500);
+</script>
