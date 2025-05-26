@@ -3,11 +3,12 @@ javascript: var t;
 t = {
 PT: [
 "Apresentação",
-"A ligação poderá ser gravada para fins de treinamento, qualidade e melhoria nos serviços do Google, de acordo com a nossa política de privacidade",
+"A ligação poderá ser gravada para fins de treinamento, qualidade e melhoria nos serviços do Google, de acordo com a nossa política de privacidade. [Você concorda?]",
 "Tempo da Ligação",
-"Confirmações: Task, site, AM",
 "Confirmação: Pedir que o Anunciante Confirme os 10 dígitos do CID",
-"Confirmação: Backup e acessos ADM",
+"Confirmações: Task, site, AM",
+"[Se aplicável] SPA: Para sua maior comodidade, podemos realizar a consultoria fazendo a implementação por aqui, ou seja, eu mesmo faço uma parte do processo internamente e finalizamos o que ficar pendente no final com o seu compartilhamento de tela. Para prosseguir com a criação da [TASK] em seu nome, precisaremos solicitar acesso temporário à sua conta GTM e Google Ads. Isso nos permitirá criar, salvar e publicar as alterações. Este acesso será cancelado assim que finalizarmos o atendimento. Você concorda em nos conceder acesso temporário?",
+"Confirmação: Acessos ADM, backup",
 "Fechar Conteúdo Sensível",
 "Resumo da chamada",
 "Ajuda adicional",
