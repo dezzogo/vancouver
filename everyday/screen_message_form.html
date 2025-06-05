@@ -1,0 +1,10 @@
+<script>
+(function googleFormValidation(){
+    if(document.body.innerText.includes('MENSAGEM DE AGRADECIMENTO')){
+        console.log('form_enviado')
+dataLayer.push({'event': 'formulario_enviado'})
+    } else{
+        setTimeout(googleFormValidation, 500);
+    }
+})()
+</script>

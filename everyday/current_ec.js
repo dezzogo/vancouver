@@ -1,7 +1,6 @@
 //EMAIL
 var email = //no needed, just to avoid errors
 
-
 function() {
     var regex = /\S+@\S+\.\S+/;
     var email;

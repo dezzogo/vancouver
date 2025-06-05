@@ -12,3 +12,26 @@ if(formOrcamentos){
     })
 }
 </script>
+----
+
+<script>
+var formButton = document.querySelector('.wpforms-submit');
+if (formButton) {
+    formButton.addEventListener('click', function() {
+        dataLayer.push({'event': 'formulario_de_contacto'});
+    });
+} else {
+    setTimeout(googleFormValidation, 500);
+}
+</script>
+
+(function googleFormValidation(){
+if(document.body.innerText.includes('Em breve o nosso serviço de apoio ao cliente entrará em contacto')){
+dataLayer.push({'event': 'formulario_de_contacto'})
+} else{
+setTimeout(googleFormValidation, 500);
+}
+})()
+</script>
+
+

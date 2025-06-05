@@ -1,0 +1,15 @@
+<script>
+  function formSubmission() {
+    var submitButton = document.querySelector("#contactFormSubmit");
+
+    if (submitButton) {
+      submitButton.addEventListener("click", function () {
+        dataLayer.push({
+          event: "form_submit",
+        });
+      });
+    } else{
+        setTimeout(formSubmission,500);
+    }
+  }
+</script>

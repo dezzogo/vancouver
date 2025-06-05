@@ -1,0 +1,47 @@
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var firedTransactions = {};
+
+  function checkForPurchase(event) {
+    if (event.event === 'purchase' &&
+        event.ecommerce &&
+        event.ecommerce.purchase &&
+        event.ecommerce.purchase.transaction_id) {
+
+      var transactionId = event.ecommerce.purchase.transaction_id;
+      var key = 'purchase_fired_' + transactionId;
+
+      if (!firedTransactions[transactionId] && localStorage.getItem(key) !== 'true') {
+        // Marca como já disparado
+        localStorage.setItem(key, 'true');
+        firedTransactions[transactionId] = true;
+
+        console.log('[GTM] Evento de compra único permitido para ID:', transactionId);
+      } else {
+        console.log('[GTM] Transação duplicada detectada e ignorada:', transactionId);
+
+        // Envia o evento prevent_dup para controle
+        window.dataLayer.push({
+          event: 'prevent_dup',
+          transactionId: transactionId
+        });
+      }
+    }
+  }
+
+  if (window.dataLayer && dataLayer.length) {
+    for (var i = 0; i < dataLayer.length; i++) {
+      checkForPurchase(dataLayer[i]);
+    }
+  }
+
+  dataLayer.push = (function (originalPush) {
+    return function () {
+      var args = Array.prototype.slice.call(arguments);
+      args.forEach(checkForPurchase);
+      return originalPush.apply(this, arguments);
+    };
+  })(dataLayer.push);
+})();
+</script>

@@ -1,0 +1,40 @@
+<script>
+(function () {
+  var alreadyFired = false;
+
+  function checkForPurchase(event) {
+    if (alreadyFired) return;
+
+    if (event.event === 'purchase' &&
+        event.ecommerce &&
+        event.ecommerce.purchase &&
+        event.ecommerce.purchase.transaction_id) {
+
+      var transactionId = event.ecommerce.purchase.transaction_id;
+      var key = 'purchase_fired_' + transactionId;
+
+      if (localStorage.getItem(key) !== 'true') {
+        localStorage.setItem(key, 'true');
+        console.log('Evento de compra único permitido para ID:', transactionId);
+        alreadyFired = true;
+      } else {
+        console.log('Transação duplicada detectada e ignorada:', transactionId);
+      }
+    }
+  }
+
+  if (window.dataLayer && dataLayer.length) {
+    for (var i = 0; i < dataLayer.length; i++) {
+      checkForPurchase(dataLayer[i]);
+    }
+  }
+
+  dataLayer.push = (function (originalPush) {
+    return function () {
+      var args = Array.prototype.slice.call(arguments);
+      args.forEach(checkForPurchase);
+      return originalPush.apply(this, arguments);
+    };
+  })(dataLayer.push);
+})();
+</script>
