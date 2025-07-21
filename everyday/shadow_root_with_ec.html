@@ -1,0 +1,27 @@
+<script>
+
+var hostWhatsapp = document.querySelector('body > div:nth-child(33)');
+
+if (hostWhatsapp && hostWhatsapp.shadowRoot) {
+  var shadowRootWhatsapp = hostWhatsapp.shadowRoot;
+  var emailInput = shadowRootWhatsapp.querySelector('[type="email"]');
+  var submitButton = shadowRootWhatsapp.querySelector('.button-send-widget-whatsapp');
+
+  if (emailInput && submitButton) {
+    submitButton.addEventListener('click', function() {
+      var emailValue = emailInput.value;
+      var regex = /\S+@\S+\.\S+/;
+
+      if (emailValue && regex.test(emailValue)) {
+        dataLayer.push({
+          'event': 'whatsapp',
+          'email': emailValue
+        });
+      } else {
+        setTimeout(function() {}, 500);
+      }
+    });
+  }
+}
+
+</script>
