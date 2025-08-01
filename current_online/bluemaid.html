@@ -1,37 +1,15 @@
 <script>
-var formOrcamentos = document.querySelector('#wpforms-submit-1612');
-
-if(formOrcamentos){
-    var email = document.querySelector('[type="email"]').value;
-    formOrcamentos.addEventListener('click', function(){
-        if(email){
-            dataLayer.push({
-                'event':'submitForm'
-            })
-        }
-    })
-}
-</script>
-----
-
-<script>
-var formButton = document.querySelector('.wpforms-submit');
-if (formButton) {
-    formButton.addEventListener('click', function() {
-        dataLayer.push({'event': 'formulario_de_contacto'});
+function wppClick() {
+    var wppButton = document.querySelectorAll('.btn-gran');
+    wppButton.forEach(function(button) {
+        button.addEventListener('click', function() {
+            dataLayer.push({'event': 'whatsapp'});
+        });
     });
-} else {
-    setTimeout(googleFormValidation, 500);
-}
+    var whatsFlutuante = document.querySelector('#whats_flutuante');
+    if (whatsFlutuante) {
+        whatsFlutuante.addEventListener('click', function() {
+            dataLayer.push({'event': 'whatsapp'});
+        });
+}}
 </script>
-
-(function googleFormValidation(){
-if(document.body.innerText.includes('Em breve o nosso serviço de apoio ao cliente entrará em contacto')){
-dataLayer.push({'event': 'formulario_de_contacto'})
-} else{
-setTimeout(googleFormValidation, 500);
-}
-})()
-</script>
-
-
