@@ -13,3 +13,12 @@
     }
   }
 </script>
+
+<!-- #2 -->
+<script>
+document.addEventListener('submit', function(e){
+        if(e.target.getAttribute('action').includes('/veiculos/gravar-proposta')){
+            dataLayer.push({event: 'form_submit'});
+        }
+    })
+</script>
