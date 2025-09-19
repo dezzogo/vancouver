@@ -1,0 +1,12 @@
+<script>
+var webwats = document.querySelectorAll('a[href*="whatsapp"], a[href*="wa.link"], a[href*="wa.me"]')
+webwats.forEach(function(btn){
+ btn.target = "blank";
+ btn.addEventListener('click', function(){
+   console.log('Whatsapp')
+   dataLayer.push({
+     'event': 'clic_whatsapp'
+   })
+ })
+});
+</script>
