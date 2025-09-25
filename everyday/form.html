@@ -27,6 +27,22 @@ document.addEventListener('submit', function(e){
 <!-- #3 -->
 <script>
   document.querySelector('#SELETOR').addEventListener('click', function(){
-    dataLayer.push('event':'submit')
+    dataLayer.push({'event':'submit'})
   })
+</script>
+
+<!-- #4 QS -->
+<script>
+  document.addEventListener("click", function(e) {
+    var btnMessage = "Enviar";
+    btnMessage = btnMessage.toLowerCase();
+    var sendButtonValue = e.srcElement.innerText.toLowerCase() || e.srcElement.value.toLowerCase()
+
+    if(btnMessage == sendButtonValue) {
+      console.log("Sending...");
+        dataLayer.push({
+          'event' : 'submit'
+        });
+    }
+  });
 </script>
